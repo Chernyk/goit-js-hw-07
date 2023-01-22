@@ -16,19 +16,7 @@ function newGallary(image) {
 }
 galleryEl.insertAdjacentHTML("beforeend", newGallary(galleryItems));
 
-galleryEl.addEventListener("click", onImageClick);
-function onImageClick(event) {
-  event.preventDefault();
-  if (event.target.nodeName !== "IMG") {
-    return;
-  }
-  const instance = new SimpleLightbox(".gallery a", {
-    captionsData: "alt",
-    captionsDelay: 250,
-  });
-  galleryEl.addEventListener("keydown", (evt) => {
-    if (evt.code === "Escape") {
-      instance.close();
-    }
-  });
-}
+const instance = new SimpleLightbox(".gallery a", {
+  captionsData: "alt",
+  captionsDelay: 250,
+});
